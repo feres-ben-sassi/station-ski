@@ -1,31 +1,16 @@
 package tn.esprit.feresski.entities;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
-
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+import java.time.LocalDate;
 @Entity
-public class Abonnement implements Serializable {
+public class Abonnement {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long numAbon ;
-    private  int numSemaine;
-    @Temporal(TemporalType.DATE)
-    private Date dateDebut ;
-    @Temporal(TemporalType.DATE)
-    private Date dateFin ;
-    private float prixAbon;
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    int id;
+    Long numAbon;
+    LocalDate dateDebut;
+    LocalDate dateFin;
+    Float prixAbon;
     @Enumerated(EnumType.STRING)
-    private TypeAbonnement typeAbonnement;
+    TypeAbonnement typeAbon;
 }

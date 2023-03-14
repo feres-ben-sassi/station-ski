@@ -1,5 +1,7 @@
 package tn.esprit.feresski.entities;
 
 public enum TypeCours {
-    COLLECTIF_ENFANT, COLLECTIF_ADULTE, PARTICULIER
+    COLLECTIF_ENFANR,
+    COLLECTIF_ADULE,
+    PARTICULIER,
 }
