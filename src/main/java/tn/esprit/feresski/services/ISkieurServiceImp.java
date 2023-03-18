@@ -7,6 +7,9 @@ import tn.esprit.feresski.entities.Skieur;
 import tn.esprit.feresski.repositories.SkieurRepository;
 
 import java.util.List;
+// cette annotation "Service" permet de creer une instance ( Java Bean / Spring Bean )
+// dans le contexte/container Spring Container
+
 @Service
 public class ISkieurServiceImp implements ISkieurService {
     @Autowired

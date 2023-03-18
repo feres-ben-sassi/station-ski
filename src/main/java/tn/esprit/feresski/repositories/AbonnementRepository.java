@@ -1,4 +1,7 @@
 package tn.esprit.feresski.repositories;
 
-public interface AbonnementRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import tn.esprit.feresski.entities.Abonnement;
+
+public interface AbonnementRepository extends JpaRepository <Abonnement,Integer> {
 }
