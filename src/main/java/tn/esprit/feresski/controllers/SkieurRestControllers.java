@@ -1,13 +1,15 @@
 package tn.esprit.feresski.controllers;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.feresski.entities.Skieur;
 import tn.esprit.feresski.services.ISkieurService;
+@AllArgsConstructor
 @RestController
 @RequestMapping("/skieur")
 public class SkieurRestControllers {
-    @Autowired
+//    @Autowired
     ISkieurService iSkieurService;
     @PostMapping
     public Skieur addSkieur(@RequestBody Skieur skieur){
@@ -22,4 +24,8 @@ public class SkieurRestControllers {
     public Skieur retrieveSkieur(@PathVariable Integer numSkieur) {
         return iSkieurService.retrieveSkieur(numSkieur);
     }
-}
+    @PutMapping("/{numSkieur}/{numPiste}")
+    public Skieur assignSkierToPiste(@PathVariable int numSkieur, @PathVariable int numPiste){
+        return iSkieurService.assignSkierToPiste(numSkieur,numPiste);}
+
+    }

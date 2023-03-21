@@ -8,7 +8,11 @@ public interface ISkieurService {
     List<Skieur> retrieveAllSkieurs();
     Skieur addSkieur(Skieur skieur);
     void removeSkieur (Integer numSkieur);
+
+//    Skieur assignSkieurToPiste(int numSkieur, int numPiste);
+
     Skieur retrieveSkieur (Integer numSkieur);
     Skieur updateSkieur (Skieur skieur);
+    Skieur assignSkierToPiste(int numSkieur, int numPiste);
 
 }
