@@ -2,6 +2,7 @@ package tn.esprit.feresski.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tn.esprit.feresski.entities.Piste;
 import tn.esprit.feresski.entities.Skieur;
 import tn.esprit.feresski.repositories.PisteRepository;
@@ -32,13 +33,14 @@ public class ISkieurServiceImp implements ISkieurService {
         skieurRepository.deleteById(numSkieur);
 
     }
+    @Transactional
     @Override
     public Skieur assignSkierToPiste(int numSkieur, int numPiste) {
         Skieur skieur = skieurRepository.findById(numSkieur).orElse(null) ;
         Piste piste = pisteRepository.findById(numPiste).orElse(null) ;
         if (skieur != null && piste != null) {
             piste.getSkieurs().add(skieur);
-            pisteRepository.save(piste);
+//            pisteRepository.save(piste);
         }
         return skieur ;
     }
