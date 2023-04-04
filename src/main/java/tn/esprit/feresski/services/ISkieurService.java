@@ -1,6 +1,7 @@
 package tn.esprit.feresski.services;
 
 import tn.esprit.feresski.entities.Skieur;
+import tn.esprit.feresski.entities.TypeAbonnement;
 
 import java.util.List;
 
@@ -14,5 +15,7 @@ public interface ISkieurService {
     Skieur retrieveSkieur (Integer numSkieur);
     Skieur updateSkieur (Skieur skieur);
     Skieur assignSkierToPiste(int numSkieur, int numPiste);
+    List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement);
+
 
 }
