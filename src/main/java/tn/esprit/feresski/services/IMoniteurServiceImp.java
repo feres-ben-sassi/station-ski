@@ -35,7 +35,7 @@ public class IMoniteurServiceImp implements IMoniteurService {
     public Map<Cours, List<Integer>> numWeeksCourseOfInstructorBySupport(Long numInstructor, Support support) {
         Moniteur mon = moniteurRepository.findByNumMoniteur(numInstructor);
         Set<Cours> lc=  mon.getCours();
-        Map<Long,Integer> finallist = new HashMap<>();
+        Map<Cours,List<Integer>> finallist = new HashMap<>();
         lc.forEach(cours -> {
             if (cours.getSupport() == support) {
 //                Inscription si = cours.getInscriptions().stream().findAny().get();

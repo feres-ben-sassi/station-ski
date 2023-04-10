@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tn.esprit.feresski.entities.Piste;
 import tn.esprit.feresski.entities.Skieur;
+import tn.esprit.feresski.entities.TypeAbonnement;
 import tn.esprit.feresski.repositories.PisteRepository;
 import tn.esprit.feresski.repositories.SkieurRepository;
 
@@ -43,6 +44,11 @@ public class ISkieurServiceImp implements ISkieurService {
 //            pisteRepository.save(piste);
         }
         return skieur ;
+    }
+
+    @Override
+    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement) {
+        return null;
     }
 
     @Override
