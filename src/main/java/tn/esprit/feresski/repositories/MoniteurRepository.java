@@ -30,12 +30,12 @@ public interface MoniteurRepository extends JpaRepository<Moniteur,Integer> {
             "        join cours c on c.id = i.cours_id" +
             "        JOIN moniteur_cours mc on mc.cours_id = c.id" +
             "        JOIN moniteur m on mc.moniteur_id = m.id" +
-            "        WHERE m.nomm = :nomN and  c.support = :support ",nativeQuery = true)
-    List<Skieur> findSkieurByMoniteurCoursSupportSQL(@Param("nomM") String nomM ,@Param("support") Enum support );
+            "        WHERE m.nomm = :nomM and  c.support = :support ",nativeQuery = true)
+    List<Skieur> findSkieurByMoniteurCoursSupportSQL(@Param("nomM") String nomM ,@Param("support") Support support );
     @Query("SELECT s" +
             "        FROM Skieur s" +
             "        join Inscription i on i.skieur = s" +
             "        JOIN Moniteur m on i.cours member of m.cours" +
             "        WHERE m.nomM = :nomM and  i.cours.support = :support ")
-    List<Skieur> findSkieurByMoniteurCoursSupportJPQL(@Param("nomM") String nomM ,@Param("support") Enum support );
+    List<Skieur> findSkieurByMoniteurCoursSupportJPQL(@Param("nomM") String nomM ,@Param("support") Support support );
 }

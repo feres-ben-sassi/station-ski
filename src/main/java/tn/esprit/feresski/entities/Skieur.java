@@ -29,7 +29,7 @@ Set <Piste>pistes;
 
 @OneToOne(cascade = CascadeType.ALL)
     Abonnement abonnement;
-@OneToMany(mappedBy = "skieur")
-    Set<Inscription>Inscriptions;
+@OneToMany(mappedBy = "skieur" , fetch = FetchType.EAGER)
+    Set<Inscription>inscriptions;
 
 }

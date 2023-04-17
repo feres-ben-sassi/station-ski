@@ -1,6 +1,8 @@
 package tn.esprit.feresski.services;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tn.esprit.feresski.entities.Piste;
@@ -13,6 +15,9 @@ import java.util.List;
 // cette annotation "Service" permet de creer une instance ( Java Bean / Spring Bean )
 // dans le contexte/container Spring Container
 
+
+@Slf4j
+// THIS ANNOTATION Create Log
 @RequiredArgsConstructor
 @Service
 public class ISkieurServiceImp implements ISkieurService {
@@ -51,6 +56,8 @@ public class ISkieurServiceImp implements ISkieurService {
         return null;
     }
 
+
+
     @Override
     public Skieur retrieveSkieur(Integer numSkieur) {
         return skieurRepository.findById(numSkieur).orElse(null);
@@ -61,5 +68,21 @@ public class ISkieurServiceImp implements ISkieurService {
         return skieurRepository.save(skieur);
     }
 
-//
+//    @Scheduled (fixedDelay = 10000)
+    @Override
+    public void schedulerFixedDelay() throws InterruptedException {
+        Thread.sleep(30000);
+        log.info("scheduler Fixed Delay ");
+    }
+
+    @Scheduled (fixedRate = 10000)
+    @Override
+    public void schedulerFixedRate() throws InterruptedException {
+//        Thread.sleep(30000);
+        skieurRepository.findAll().forEach(
+                skieur -> log.info("Nbr "+ skieur.getInscriptions().size())
+        );
+        log.info("scheduler Fixed Rate ");
+    }
+
 }
