@@ -26,6 +26,7 @@ public class ISkieurServiceImp implements ISkieurService {
     private final PisteRepository pisteRepository;
     @Override
     public List<Skieur> retrieveAllSkieurs() {
+        log.info("");
         return skieurRepository.findAll();
     }
 
